@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 //microCMS呼び出し
 import { getBlogs } from "../library/microcms";
-const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedAt"] });
+const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedAt", "eyecatch", "category"] });
 ---
 
 <!DOCTYPE html>
@@ -20,15 +20,31 @@ const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedA
 			<div class="py-8 text-lg text-stone-500">
 			続かない愚行録。日々の安寧。
 			</div>
+			<!-- microCMSから呼び出した投稿をデザインあてながらリスト表示 -->
 			<ul>
 				{
 					posts.map((post) => (
 						<li>
-							<time datetime={post.publishedAt}>
-								{new Date(post.publishedAt).toLocaleDateString(`ja-JP`)}
-							</time>
-							<span></span>
-							<a href={`/blog/${post.id}`}>{post.title}</a>
+							<section class="flex items-center pb-8 bg-white">
+								<div class="justify-center flex-1 max-w-4xl px-4 py-4 mx-auto text-left lg:py-10 ">
+									<div class="grid grid-cols-1 mb-6 md:grid-cols-[70%,1fr] border-gray-200 border-b dark:border-gray-700 pb-6 gap-4">
+										<div>
+											<h2 class="mt-1 mb-3 text-xl font-semibold text-gray-600 dark:text-gray-400 ">
+												<a href={`/blog/${post.id}`} class="text-stone-600">{post.title}
+													</a>
+												</h2>
+											<div class="flex items-center ">
+												<span class="text-xl text-gray-500 dark:text-gray-400">
+													{new Date(post.publishedAt).toLocaleDateString(`ja-JP`)}
+													</span>
+											</div>
+										</div>
+										<div>
+											<img src={post.eyecatch.url} alt="" class="object-cover w-52 h-52">
+										</div>
+									</div>
+								</div>
+			</section>
 						</li>
 					))
 				}

@@ -12,6 +12,10 @@ export type Blog = {
   revisedAt: string;
   title: string;
   content: string;
+  category: {
+    id: string;
+    name: string;
+  };
   eyecatch: {
     url: string;
     height: number;
