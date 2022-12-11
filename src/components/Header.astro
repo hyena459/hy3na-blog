@@ -3,15 +3,17 @@ import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../config';
 ---
 
-<header class="flex justify-between items-center">
+<header class="flex justify-between items-center py-4">
 	<div>
 		<a href="/" class="flex items-center">
 			<img src="/hy3nalogo.png" width="56" height="56" alt="hy3na-logo">
 			hy3na at sakariba
 		</a>
 	</div>
-	<nav>
+	<nav class="text-xl font-bold">
 		<HeaderLink href="/about">About</HeaderLink>
+		<HeaderLink href="/about">Discord</HeaderLink>
+		<HeaderLink href="/about">GitHub</HeaderLink>
 	</nav>
 </header>
 <style>
