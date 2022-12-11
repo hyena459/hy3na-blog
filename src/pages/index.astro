@@ -16,8 +16,11 @@ const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedA
 	<body>
 		<Header title={SITE_TITLE} />
 		<main>
-			続かない愚行録。日々の安寧。
-			<ul class="blog-posts">
+			<h1 class="text-4xl font-extrabold">{SITE_TITLE}</h1>
+			<div class="py-8">
+				続かない愚行録。日々の安寧。
+			</div>
+			<ul>
 				{
 					posts.map((post) => (
 						<li>

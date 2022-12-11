@@ -3,11 +3,13 @@ import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../config';
 ---
 
-<header class="container">
-	<a href="/" class="container">
-		<img src="/hy3nalogo.png" width="56" height="56" alt="hy3na-logo">
-		hy3na at sakariba
-    </a>
+<header class="flex justify-between items-center">
+	<div>
+		<a href="/" class="flex items-center">
+			<img src="/hy3nalogo.png" width="56" height="56" alt="hy3na-logo">
+			hy3na at sakariba
+		</a>
+	</div>
 	<nav>
 		<HeaderLink href="/about">About</HeaderLink>
 	</nav>
@@ -24,11 +26,5 @@ import { SITE_TITLE } from '../config';
 	
 	h2 {
 		margin: 0.5em 0;
-	}
-
-	.container {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
 	}
 </style>
