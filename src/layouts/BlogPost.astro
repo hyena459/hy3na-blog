@@ -17,40 +17,61 @@ const {
 	content: { title, description, pubDate, updatedDate, heroImage },
 } = Astro.props;
 ---
+<html lang="ja">
 
-<html lang="en">
+	<style global>
+		.markdown-body{
+			@apply container mx-auto md:px-36 text-lg tracking-wider leading-loose
+		}
+		.markdown-body ul {
+			@apply list-disc list-inside pl-4 mb-4
+		}
+		.markdown-body h1, h2, h3 {
+			@apply font-bold mb-4
+		}
+		.markdown-body h1, h2 {
+			@apply border-b-2 border-solid border-gray-200 
+		}
+		.markdown-body h1 {
+			@apply text-3xl pb-2
+		}
+		.markdown-body h2 {
+			@apply text-2xl
+		}
+		.markdown-body h3 {
+			@apply text-xl
+		}
+		.markdown-body p {
+			@apply mb-8
+		}
+	</style>
 	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			.title {
-				font-size: 2em;
-				margin: 0.25em 0 0;
-			}
-			hr {
+	  <BaseHead title={title} description={description} />
+	  <style>
+		.title {
+			@apply text-center tracking-widest
+		}
+		.hr {
 				border-top: 1px solid #ddd;
 				margin: 1rem 0;
 			}
-		</style>
+	  </style>
 	</head>
 
 	<body>
 		<Header />
 		<main>
-			<article>
-				{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
+			<article class="markdown-body">
+				<div class="text-center">{pubDate && <time>{pubDate}</time>}</div>
 				<h1 class="title">{title}</h1>
-				{pubDate && <time>{pubDate}</time>}
-				{
-					updatedDate && (
-						<div>
-							Last updated on <time>{updatedDate}</time>
-						</div>
-					)
-				}
 				<hr />
+				<div class="flex justify-center">
+				  {heroImage && <img class="object-cover w-80 h-80" src={heroImage} alt="" />}
+				</div>
 				<slot />
 			</article>
 		</main>
 		<Footer />
 	</body>
 </html>
+
