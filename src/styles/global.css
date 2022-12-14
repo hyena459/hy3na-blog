@@ -59,27 +59,8 @@ pre > code {
 	all: unset;
 }
 blockquote {
-	border: 1px solid #999;
-	color: #222;
-	padding: 2px 0px 2px 20px;
-	margin: 0px;
-	font-style: italic;
-}
-
-/* blog post list */
-ul.blog-posts {
-    list-style-type: none;
-    padding: unset;
-}
-
-ul.blog-posts li {
-    display: flex;
-}
-
-ul.blog-posts li span {
-    flex: 0 0 130px;
-}
-
-ul.blog-posts li a:visited {
-    color: var(--visited-color);
+	border-left: 8px solid #999;
+	color: #777;
+	padding: 1rem;
+	margin: 1.5rem 0;
 }
