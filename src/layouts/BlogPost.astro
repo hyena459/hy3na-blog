@@ -21,7 +21,7 @@ const {
 
 	<style global>
 		.markdown-body{
-			@apply container mx-auto md:px-36 text-lg tracking-wider leading-loose
+			@apply container mx-auto md:px-14 text-lg tracking-wider leading-loose
 		}
 		.markdown-body ul {
 			@apply list-disc list-inside pl-4 mb-4
@@ -33,7 +33,7 @@ const {
 			@apply border-b-2 border-solid border-gray-200 
 		}
 		.markdown-body h1 {
-			@apply text-3xl pb-2
+			@apply text-left text-4xl font-extrabold leading-9 tracking-tight md:leading-10 pb-2
 		}
 		.markdown-body h2 {
 			@apply text-2xl
@@ -65,9 +65,6 @@ const {
 				<div class="text-center">{pubDate && <time>{pubDate}</time>}</div>
 				<h1 class="title">{title}</h1>
 				<hr />
-				<div class="flex justify-center">
-				  {heroImage && <img class="object-cover w-80 h-80" src={heroImage} alt="" />}
-				</div>
 				<slot />
 			</article>
 		</main>
