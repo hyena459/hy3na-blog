@@ -42,7 +42,7 @@ const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedA
 											<div class="flex flex-wrap">
 											{
 											  post.tags.split(" ").map((tag) => (
-												<div class="text-sm items-center pt-2 mr-4 bg-white font-bold text-gray-700 rounded-full border">#{tag}</div>
+												<div class="text-xs mr-4 mt-2 p-2 bg-white font-bold text-gray-700 rounded-full border">#{tag}</div>
 												)
 											  )
 											}
