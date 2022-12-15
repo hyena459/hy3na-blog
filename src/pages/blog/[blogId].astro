@@ -23,6 +23,7 @@ const blog = await getBlogDetail(blogId as string);
     heroImage: blog.eyecatch?.url ?? '',
     pubDate: new Date(blog.publishedAt).toLocaleDateString('ja-JP'),
     updatedDate: new Date(blog.updatedAt).toLocaleDateString('ja-JP'),
+    tags: blog.tags ?? ''
 }}>
   <main set:html={blog.content} />
 </Layout>

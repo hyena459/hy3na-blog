@@ -10,11 +10,12 @@ export interface Props {
 		pubDate?: string;
 		updatedDate?: string;
 		heroImage?: string;
+		tags: string;
 	};
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, heroImage },
+	content: { title, description, pubDate, updatedDate, heroImage, tags},
 } = Astro.props;
 ---
 <html lang="ja">
@@ -60,6 +61,14 @@ const {
 			<article class="markdown-body">
 				<div class="text-center">{pubDate && <time>{pubDate}</time>}</div>
 				<div class="title">{title}</div>
+				<div class="flex flex-wrap">
+					{
+					  tags.split(" ").map((tag) => (
+						<div class="text-xs mr-4 mt-2 p-2 bg-white font-bold text-gray-700 rounded-full border">#{tag}</div>
+						)
+					  )
+					}
+					</div>
 				<div class="flex justify-center py-6 border-b-4 border-solid border-gray-200 mb-10"><img src="/hy3nalogo.png" width="56" height="56" alt="hy3na-logo"></div>
 				<slot />
 			</article>
