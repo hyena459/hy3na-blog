@@ -59,7 +59,7 @@ const {
 		<Header />
 		<main>
 			<article class="markdown-body">
-				<div class="text-center">{pubDate && <time>{pubDate}</time>}</div>
+				<div class="text-center"><time>{pubDate}</time></div>
 				<div class="title">{title}</div>
 				<div class="flex flex-wrap md:justify-center">
 					{
@@ -72,6 +72,10 @@ const {
 				<div class="flex justify-center py-6 border-b-4 border-solid border-gray-200 mb-10"><img src="/hy3nalogo.png" width="56" height="56" alt="hy3na-logo"></div>
 				<slot />
 			</article>
+			<!-- <div class="flex justify-between">
+				<div><a href="#">prev artice</a></div>
+				<div><a href="#">next artice</a></div>
+			</div> -->
 		</main>
 		<Footer />
 	</body>

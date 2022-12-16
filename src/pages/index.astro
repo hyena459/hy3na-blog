@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 //microCMS呼び出し
 import { getBlogs } from "../library/microcms";
-const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedAt", "eyecatch", "content", "category", "tags"] });
+const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedAt", "eyecatch", "content", "category", "tags"] })
 ---
 
 <!DOCTYPE html>
@@ -31,7 +31,7 @@ const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedA
 										<div>
 											<div class="flex items-center justify-center md:justify-start">
 												<span class="md:text-xl text-gray-500 dark:text-gray-400 pb-4">
-													{new Date(post.publishedAt).toLocaleDateString(`ja-JP`)}
+													{new Date(post.publishedAt).toLocaleDateString(`ja-JP`, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
 													</span>
 											</div>
 											<h2 class="flex justify-center md:justify-start mt-1 mb-3 text-xl font-semibold text-gray-600 dark:text-gray-400 ">
