@@ -30,7 +30,7 @@ const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedA
 									<div class="grid grid-cols-1 mb-6 md:grid-cols-[70%,1fr] border-gray-200 border-b dark:border-gray-700 pb-6 gap-4">
 										<div>
 											<div class="flex items-center justify-center md:justify-start">
-												<span class="md:text-xl text-gray-500 dark:text-gray-400 pb-4">
+												<span class="md:text-lg text-gray-500 dark:text-gray-400 pb-4">
 													{new Date(post.publishedAt).toLocaleDateString(`ja-JP`, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
 													</span>
 											</div>
