@@ -74,9 +74,11 @@ const {
 				<div class="flex justify-center py-6 border-b-4 border-solid border-gray-200 mb-10"><img src="/hy3nalogo.png" width="56" height="56" alt="hy3na-logo"></div>
 				<slot />
 			</article>
+
+			<!-- TODO: ページネーションアンカーの表示・非表示実装が見栄え悪いので直したいところ -->
 			<div class="flex justify-between">
-				{prevBlogId && <div><a href={`/blog/${prevBlogId}`}>前回の記事</a></div>}
-				{nextBlogId && <div><a href={`/blog/${nextBlogId}`}>次の記事</a></div>}
+				{prevBlogId ? <div class="flex justify-start"><a href={`/blog/${prevBlogId}`}>前回の記事</a></div> : <div></div>}
+				{nextBlogId ? <div class="flex justify-end"><a href={`/blog/${nextBlogId}`}>次の記事</a></div> : <div></div>}
 			</div>
 		</main>
 		<Footer />

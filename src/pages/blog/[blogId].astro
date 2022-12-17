@@ -17,11 +17,11 @@ const { blogId } = Astro.params;
 const blog = await getBlogDetail(blogId as string);
 
 //次の記事のIDを取得
-const nextBlogResponse = await getBlogs({ limit: 1, filters: `publishedAt[greater_than]`+ blog.publishedAt, fields: ["id"]})
+const nextBlogResponse = await getBlogs({ limit: 1, filters: `publishedAt[greater_than]`+ blog.publishedAt, orders:"publishedAt", fields: ["id"]})
 const nextBlogId = nextBlogResponse.contents[0]?.id
 
 //前の記事のIDを取得
-const prevBlogResponse = await getBlogs({ limit: 1, filters: `publishedAt[less_than]`+ blog.publishedAt, fields: ["id"]})
+const prevBlogResponse = await getBlogs({ limit: 1, filters: `publishedAt[less_than]`+ blog.publishedAt, orders:"-publishedAt", fields: ["id"]})
 const prevBlogId = prevBlogResponse.contents[0]?.id
 ---
 
