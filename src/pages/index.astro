@@ -17,7 +17,7 @@ const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedA
 		<Header title={SITE_TITLE} />
 		<main>
 			<h1 class="text-center text-4xl font-extrabold md:text-4xl md:text-left md:pt-6 tracking-widest">{SITE_TITLE}</h1>
-			<div class="py-6  text-center text-sm md:text-xl md:py-8 md:text-left text-stone-500">
+			<div class="py-6  text-center text-sm border-b-2 md:border-b-0 md:text-xl md:py-8 md:text-left text-stone-500">
 			続かない愚行録。日々の安寧。
 			</div>
 			<!-- microCMSから呼び出した投稿をデザインあてながらリスト表示 -->
@@ -26,7 +26,7 @@ const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedA
 					posts.map((post) => (
 						<li>
 							<section class="flex items-center bg-white">
-								<div class="justify-center flex-1 max-w-4xl px-4 py-4 mx-auto text-left lg:py-10 ">
+								<div class="justify-center flex-1 max-w-4xl px-4 py-4 mx-auto text-left lg:py-10">
 									<div class="grid grid-cols-1 mb-6 md:grid-cols-[70%,1fr] border-gray-200 border-b dark:border-gray-700 pb-6 gap-4">
 										<div>
 											<div class="flex items-center justify-center md:justify-start">
