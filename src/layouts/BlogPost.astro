@@ -80,7 +80,7 @@ const {
 			<!-- TODO: ページネーションアンカーの表示・非表示実装が見栄え悪いので直したいところ -->
 			<div class="flex justify-between">
 				{prevBlogId ? <div><div class="text-xs uppercase pb-2 tracking-wider text-gray-700 font-bold">previous post</div><a class="text-teal-600 hover:text-teal-700" href={`/blog/${prevBlogId}`}>{prevBlogTitle}</a></div> : <div></div>}
-				{nextBlogId ? <div><div class="text-xs uppercase pb-2 tracking-wider text-gray-700 font-bold">next post</div><a href={`/blog/${nextBlogId}`}>{nextBlogTitle}</a></div> : <div></div>}
+				{nextBlogId ? <div><div class="text-xs uppercase pb-2 tracking-wider text-gray-700 font-bold">next post</div><a class="text-teal-600 hover:text-teal-700" href={`/blog/${nextBlogId}`}>{nextBlogTitle}</a></div> : <div></div>}
 			</div>
 			<div class="pt-6">
 				<a class="text-teal-600 hover:text-teal-700" href="/"> Back to Home</a>
