@@ -1,6 +1,6 @@
 ---
 layout: "../layouts/BlogPost.astro"
-title: "About hy3na in sakariba"
+title: "About Me"
 description: "About hy3na in sakariba"
 ---
 
