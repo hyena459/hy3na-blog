@@ -13,11 +13,13 @@ export interface Props {
 		tags?: string;
 		nextBlogId?: string;
 		prevBlogId?: string;
+		nextBlogTitle?: string;
+		prevBlogTitle?: string;
 	};
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, heroImage, tags, nextBlogId, prevBlogId}
+	content: { title, description, pubDate, tags, nextBlogId, prevBlogId, nextBlogTitle, prevBlogTitle}
 } = Astro.props;
 ---
 <html lang="ja">
@@ -77,8 +79,8 @@ const {
 
 			<!-- TODO: ページネーションアンカーの表示・非表示実装が見栄え悪いので直したいところ -->
 			<div class="flex justify-between">
-				{prevBlogId ? <div class="flex justify-start"><a href={`/blog/${prevBlogId}`}>前回の記事</a></div> : <div></div>}
-				{nextBlogId ? <div class="flex justify-end"><a href={`/blog/${nextBlogId}`}>次の記事</a></div> : <div></div>}
+				{prevBlogId ? <div class="flex justify-start"><a href={`/blog/${prevBlogId}`}>{prevBlogTitle}</a></div> : <div></div>}
+				{nextBlogId ? <div class="flex justify-end"><a href={`/blog/${nextBlogId}`}>{nextBlogTitle}</a></div> : <div></div>}
 			</div>
 		</main>
 		<Footer />

@@ -17,12 +17,14 @@ const { blogId } = Astro.params;
 const blog = await getBlogDetail(blogId as string);
 
 //次の記事のIDを取得
-const nextBlogResponse = await getBlogs({ limit: 1, filters: `publishedAt[greater_than]`+ blog.publishedAt, orders:"publishedAt", fields: ["id"]})
+const nextBlogResponse = await getBlogs({ limit: 1, filters: `publishedAt[greater_than]`+ blog.publishedAt, orders:"publishedAt", fields: ["id", "title"]})
 const nextBlogId = nextBlogResponse.contents[0]?.id
+const nextBlogTitle = nextBlogResponse.contents[0]?.title
 
 //前の記事のIDを取得
-const prevBlogResponse = await getBlogs({ limit: 1, filters: `publishedAt[less_than]`+ blog.publishedAt, orders:"-publishedAt", fields: ["id"]})
+const prevBlogResponse = await getBlogs({ limit: 1, filters: `publishedAt[less_than]`+ blog.publishedAt, orders:"-publishedAt", fields: ["id", "title"]})
 const prevBlogId = prevBlogResponse.contents[0]?.id
+const prevBlogTitle = prevBlogResponse.contents[0]?.title
 ---
 
 <Layout content={{
@@ -33,7 +35,9 @@ const prevBlogId = prevBlogResponse.contents[0]?.id
     updatedDate: new Date(blog.updatedAt).toLocaleDateString('ja-JP'),
     tags: blog.tags ?? '',
     nextBlogId: nextBlogId,
-    prevBlogId: prevBlogId
+    prevBlogId: prevBlogId,
+    nextBlogTitle: nextBlogTitle,
+    prevBlogTitle: prevBlogTitle
 }}>
   <main set:html={blog.content} />
 </Layout>
