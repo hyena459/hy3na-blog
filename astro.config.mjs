@@ -8,10 +8,11 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://hy3na.love',
-  integrations: [mdx(), sitemap(), image(), tailwind(), partytown({
-    // Adds dataLayer.push as a forwarding-event.
-    config: {
-      forward: ["dataLayer.push"]
-    }
-  })]
+  integrations: [mdx(), sitemap(), image(), tailwind(), partytown()]
+    // {
+  //   // Adds dataLayer.push as a forwarding-event.
+  //   config: {
+  //     forward: ["dataLayer.push"]
+  //   }
+  // })]
 });

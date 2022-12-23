@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import SimpleAnalytics from '../components/SimpleAnalytics.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 //microCMS呼び出し
 import { getBlogs } from "../library/microcms";
@@ -60,5 +61,6 @@ const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedA
 			</ul>
 		</main>
 		<Footer />
+		<SimpleAnalytics />
 	</body>
 </html>
