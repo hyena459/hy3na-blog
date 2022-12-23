@@ -5,12 +5,13 @@ import partytown from "@astrojs/partytown";
 import image from "@astrojs/image";
 import tailwind from "@astrojs/tailwind";
 
+// https://astro.build/config
 export default defineConfig({
   site: 'https://hy3na.love',
   integrations: [mdx(), sitemap(), image(), tailwind(), partytown({
     // Adds dataLayer.push as a forwarding-event.
     config: {
-      forward: ["dataLayer.push"],
-    },
-  })],
+      forward: ["dataLayer.push"]
+    }
+  })]
 });
