@@ -6,11 +6,11 @@ import image from "@astrojs/image";
 import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
+  site: 'https://hy3na.love',
   integrations: [mdx(), sitemap(), image(), tailwind(), partytown({
     // Adds dataLayer.push as a forwarding-event.
     config: {
       forward: ["dataLayer.push"],
     },
-  }),
-],
+  })],
 });
