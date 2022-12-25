@@ -1,10 +1,7 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import SimpleAnalytics from '../components/SimpleAnalytics.astro';
-import Giscus from '../components/Giscus.astro';
-
 export interface Props {
 	content: {
 		title: string;
@@ -87,9 +84,7 @@ const {
 			<div class="pt-6">
 				<a class="text-teal-600 hover:text-teal-700" href="/"> Back to Home</a>
 			</div>
-			<Giscus />
 		</main>
-		<Footer />
 		<SimpleAnalytics />
 	</body>
 </html>
