@@ -1,5 +1,5 @@
 ---
-layout: "../layouts/BlogPost.astro"
+layout: "../layouts/Menu.astro"
 title: "Contact"
 description: "Contact to hy3na at sakariba"
 ---

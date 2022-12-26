@@ -1,7 +1,5 @@
 ---
 import Layout from "../../layouts/BlogPost.astro";
-import Footer from "../../components/Footer.astro";
-import Giscus from "../../components/Giscus.astro";
 import { getBlogs, getBlogDetail } from "../../library/microcms";
 
 // 生成する記事のIDを全て取得
@@ -43,5 +41,3 @@ const prevBlogTitle = prevBlogResponse.contents[0]?.title
 }}>
   <main set:html={blog.content} />
 </Layout>
-<Giscus />
-<Footer />

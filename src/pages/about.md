@@ -1,5 +1,5 @@
 ---
-layout: "../layouts/BlogPost.astro"
+layout: "../layouts/Menu.astro"
 title: "About Me"
 description: "About hy3na in sakariba"
 ---

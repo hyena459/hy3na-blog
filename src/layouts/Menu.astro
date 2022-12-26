@@ -1,0 +1,56 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const {
+	content: { title, description}
+} = Astro.props;
+---
+<html lang="ja">
+	<head>
+	  <BaseHead title={title} description={description} />
+	  <style>
+		.title {
+			@apply flex justify-center text-left font-extrabold text-4xl py-6 leading-normal tracking-tighter md:text-5xl md:py-8 md:leading-tight
+		}
+	  </style>
+	</head>
+
+	<body>
+		<Header />
+		<main>
+			<article class="markdown-body">
+                <div class="title">{title}</div>
+                <div class="flex justify-center py-6 border-b-4 border-solid border-gray-200 mb-10"><img src="/hy3nalogo.png" width="56" height="56" alt="hy3na-logo"></div>
+				<slot />
+            </article>
+        </main>
+        <Footer />
+        <style is:global>
+			.markdown-body{
+				@apply container mx-auto md:px-14 text-lg tracking-wider leading-loose
+			}
+			.markdown-body ul {
+				@apply list-disc list-inside pl-4 mb-4
+			}
+			.markdown-body h1, h2, h3 {
+				@apply font-bold mb-4
+			}
+			.markdown-body h1, h2 {
+				@apply border-b-2 border-solid border-gray-200 
+			}
+			.markdown-body h1 {
+				@apply text-left text-4xl pb-2 font-extrabold leading-normal tracking-tight
+			}
+			.markdown-body h2 {
+				@apply text-2xl
+			}
+			.markdown-body h3 {
+				@apply text-xl
+			}
+			.markdown-body p {
+				@apply mb-8
+			}
+		</style>
+    </body>
+</html>
