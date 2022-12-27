@@ -29,7 +29,8 @@ const prevBlogTitle = prevBlogResponse.contents[0]?.title
 
 <Layout content={{
     title: blog.title,
-    description: '',
+    // SEO的に良さそうな実装がわかるまで暫定。
+    description: blog.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'').substring(0,80),
     heroImage: blog.eyecatch?.url ?? '',
     pubDate: new Date(blog.publishedAt).toLocaleDateString('ja-JP', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
     updatedDate: new Date(blog.updatedAt).toLocaleDateString('ja-JP'),
