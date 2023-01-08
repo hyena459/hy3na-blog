@@ -12,6 +12,7 @@ export type Blog = {
   revisedAt: string;
   title: string;
   content: string;
+  articleContent:Array<ArticleContent>;
   category: {
     id: string;
     name: string;
@@ -29,6 +30,13 @@ export type BlogResponse = {
   limit: number;
   contents: Blog[];
 };
+
+export type ArticleContent = {
+  fieldId: 'richText' | 'articleLink' | 'imageUrl';
+  richText: string;
+  imageUrl: string;
+  articleLink: string;
+}
 
 export const getBlogs = async (queries?: MicroCMSQueries) => {
   return await client.get<BlogResponse>({ endpoint: "blogs", queries });

@@ -25,9 +25,12 @@ const nextBlogTitle = nextBlogResponse.contents[0]?.title
 const prevBlogResponse = await getBlogs({ limit: 1, filters: `publishedAt[less_than]`+ blog.publishedAt, orders:"-publishedAt", fields: ["id", "title"]})
 const prevBlogId = prevBlogResponse.contents[0]?.id
 const prevBlogTitle = prevBlogResponse.contents[0]?.title
+
+//本文記事用配列
+const article: Array<string> = []
 ---
 
-<Layout content={{
+<Layout metaContent={{
     title: blog.title,
     description: blog.tags,
     heroImage: blog.eyecatch?.url ?? '',
@@ -39,5 +42,23 @@ const prevBlogTitle = prevBlogResponse.contents[0]?.title
     nextBlogTitle: nextBlogTitle,
     prevBlogTitle: prevBlogTitle
 }}>
-  <main set:html={blog.content} />
+
+<!-- ブロックコンテンツの取得と本文作成 -->
+{blog.articleContent.map((content) => {
+  switch (content.fieldId) {
+    case 'richText':
+      article.push(content.richText)
+      return
+    case 'articleLink':
+      article.push(`<a href=${content.articleLink}>${content.articleLink}</a>`)
+      return
+    case 'imageUrl':
+      article.push(`<img src=${content.imageUrl} />`)
+      return
+    default:
+      break;
+  }
+})}
+<!-- 出来上がった記事本文をセット -->
+<main set:html={article.join("")} />
 </Layout>

@@ -6,7 +6,7 @@ import SimpleAnalytics from '../components/SimpleAnalytics.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 //microCMS呼び出し
 import { getBlogs } from "../library/microcms";
-const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedAt", "eyecatch", "content", "category", "tags"] })
+const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedAt", "eyecatch", "articleContent", "category", "tags"] })
 ---
 
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedA
 											<h2 class="flex justify-center md:justify-start mt-1 mb-3 text-xl font-semibold">
 												<a href={`/blog/${post.id}`} class="text-stone-600">{post.title}</a>
 											</h2>
-											<div class="text-base text-left"> {post.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'').substring(0,80)}</div>
+											<div class="text-base text-left"> {post.articleContent[0].richText?.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'').substring(0,80)}</div>
 											<div class="py-2 font-bold text-end md:hidden"><a href={`/blog/${post.id}`} class="text-stone-600 hover:text-stone-700">読む→</a></div>
 											<div class="flex flex-wrap">
 											{
