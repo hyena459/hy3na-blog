@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/BlogPost.astro";
-import { getBlogs, getBlogDetail } from "../../library/microcms";
+import LinkCard from "../../components/LinkCard.astro";
+import MarkdownBody from "../../components/MarkdownBody.astro";
+import { getBlogs, getBlogDetail} from "../../library/microcms";
 
 // 生成する記事のIDを全て取得
 export async function getStaticPaths() {
@@ -25,9 +27,6 @@ const nextBlogTitle = nextBlogResponse.contents[0]?.title
 const prevBlogResponse = await getBlogs({ limit: 1, filters: `publishedAt[less_than]`+ blog.publishedAt, orders:"-publishedAt", fields: ["id", "title"]})
 const prevBlogId = prevBlogResponse.contents[0]?.id
 const prevBlogTitle = prevBlogResponse.contents[0]?.title
-
-//本文記事用配列
-const article: Array<string> = []
 ---
 
 <Layout content={{
@@ -43,22 +42,17 @@ const article: Array<string> = []
     prevBlogTitle: prevBlogTitle
 }}>
 
-<!-- ブロックコンテンツの取得と本文作成 -->
+<!-- 記事本文の作成 -->
 {blog.articleContent.map((content) => {
   switch (content.fieldId) {
     case 'richText':
-      article.push(content.richText)
-      return
+      return <MarkdownBody markDownBody={content.richText} />
     case 'articleLink':
-      article.push(`<a href=${content.articleLink}>${content.articleLink}</a>`)
-      return
+      return <LinkCard url={content.articleLink} />
     case 'imageUrl':
-      article.push(`<img src=${content.imageUrl} />`)
-      return
+      return `<img src=${content.imageUrl} />`   
     default:
       break;
   }
 })}
-<!-- 出来上がった記事本文をセット -->
-<main set:html={article.join("")} />
 </Layout>

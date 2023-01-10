@@ -38,19 +38,19 @@ const {
 	<body>
 		<Header />
 		<main>
-			<article class="markdown-body">
-				<div class="text-center">{pubDate && <time>{pubDate}</time>}</div>
-				<div class="title">{title}</div>
-				<div class="flex flex-wrap md:justify-center">
-					{
-					  tags?.split(" ").map((tag) => (
-						<div class="text-xs mr-4 mt-2 p-2 bg-white font-bold text-gray-700 rounded-full border">#{tag}</div>
-						)
-					  )
-					}
-					</div>
-				<div class="flex justify-center py-6 border-b-4 border-solid border-gray-200 mb-10"><img src="/hy3nalogo.webp" width="56" height="56" alt="hy3na-logo"></div>
-				<slot />
+			<div class="text-center pubDate">{pubDate && <time>{pubDate}</time>}</div>
+			<div class="title">{title}</div>
+			<div class="flex flex-wrap md:justify-center">
+				{
+					tags?.split(" ").map((tag) => (
+					<div class="text-xs mr-4 mt-2 p-2 bg-white font-bold text-gray-700 rounded-full border">#{tag}</div>
+					)
+					)
+				}
+				</div>
+			<div class="flex justify-center py-6 border-b-4 border-solid border-gray-200 mb-10"><img src="/hy3nalogo.webp" width="56" height="56" alt="hy3na-logo"></div>
+			<article class="container mx-auto md:px-14 text-lg tracking-wider leading-loose">
+			  <slot />
 			</article>
 			<PrevNextLink prevBlogId={prevBlogId} prevBlogTitle={prevBlogTitle} nextBlogId={nextBlogId} nextBlogTitle={nextBlogTitle} />
 			<ShareButtons />
@@ -58,33 +58,6 @@ const {
 		</main>
 		<Footer />
 		<SimpleAnalytics />
-
-		<style is:global>
-			.markdown-body{
-				@apply container mx-auto md:px-14 text-lg tracking-wider leading-loose
-			}
-			.markdown-body ul {
-				@apply list-disc list-inside pl-4 mb-4
-			}
-			.markdown-body h1, h2, h3 {
-				@apply font-bold mb-4
-			}
-			.markdown-body h1, h2 {
-				@apply border-b-2 border-solid border-gray-200 pt-8
-			}
-			.markdown-body h1 {
-				@apply text-left text-4xl pb-2 font-extrabold leading-normal tracking-tight
-			}
-			.markdown-body h2 {
-				@apply text-2xl
-			}
-			.markdown-body h3 {
-				@apply text-xl
-			}
-			.markdown-body p {
-				@apply mb-8
-			}
-		</style>
 		<script id="s9-sdk" async defer content="b2124d3ad4ec42d483a2bc5a9ebd6b19" src="//cdn.social9.com/js/socialshare.min.js"></script>
 	</body>
 </html>
