@@ -50,7 +50,7 @@ const prevBlogTitle = prevBlogResponse.contents[0]?.title
     case 'articleLink':
       return <LinkCard url={content.articleLink} />
     case 'imageUrl':
-      return `<img src=${content.imageUrl} />`   
+      return <img src={content.imageUrl} />   
     default:
       break;
   }
