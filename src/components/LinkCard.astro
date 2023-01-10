@@ -10,7 +10,7 @@ const ogp = await fetchOgp([url]);
     <div class="linkcard-main flex-1 p-3 min-h-fit">
         <h1 class="linkcard-title font-bold text-sm md:text-lg md:break-words">{ogp[0]["og:title"]}</h1>
         <p class="linkcard-description  mt-2 text-gray-700 text-xs md:text-sm overflow:hidden">
-            {ogp[0]["og:description"].length > 50 ? ogp[0]["og:description"].slice(0, 50) + "..." : ogp[0]["og:description"]}
+            {ogp[0]["og:description"]?.length > 50 ? ogp[0]["og:description"].slice(0, 50) + "..." : ogp[0]["og:description"]}
         </p>
     </div>
     <div class="linkcard-thumbnail flex-1 h-24 md:h-auto max-w-sm md:max-w-md m-6 rounded-lg shadow-lg">
