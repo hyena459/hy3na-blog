@@ -2,6 +2,7 @@
 import Layout from "../../layouts/BlogPost.astro";
 import LinkCard from "../../components/LinkCard.astro";
 import MarkdownBody from "../../components/MarkdownBody.astro";
+import Image from "../../components/Image.astro";
 import { getBlogs, getBlogDetail} from "../../library/microcms";
 
 // 生成する記事のIDを全て取得
@@ -50,7 +51,7 @@ const prevBlogTitle = prevBlogResponse.contents[0]?.title
     case 'articleLink':
       return <LinkCard url={content.articleLink} />
     case 'imageUrl':
-      return <img src={content.imageUrl} />   
+      return <Image imageUrl={content.imageUrl} />
     default:
       break;
   }
