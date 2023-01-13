@@ -32,10 +32,11 @@ export type BlogResponse = {
 };
 
 export type ArticleContent = {
-  fieldId: 'richText' | 'articleLink' | 'imageUrl';
+  fieldId: 'richText' | 'articleLink' | 'imageUrl' | 'code';
   richText: string;
   imageUrl: string;
   articleLink: string;
+  code: string;
 }
 
 export const getBlogs = async (queries?: MicroCMSQueries) => {

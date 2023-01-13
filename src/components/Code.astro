@@ -1,0 +1,10 @@
+---
+import { Code } from 'astro/components';
+export interface Props {
+    code: string;
+}
+
+const {code} = Astro.props;
+---
+
+<Code lang="astro" code={code} theme="dracula-soft" />
