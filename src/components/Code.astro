@@ -2,9 +2,12 @@
 import { Code } from 'astro/components';
 export interface Props {
     code: string;
+    lang: any;
 }
 
-const {code} = Astro.props;
+const {code, lang} = Astro.props;
 ---
 
-<Code lang="astro" code={code} theme="dracula-soft" />
+<Code lang={lang} code={code} theme="dracula-soft" />
+<!-- spacer -->
+<div class="p-2"></div>

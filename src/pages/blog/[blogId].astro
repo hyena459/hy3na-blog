@@ -54,7 +54,7 @@ const prevBlogTitle = prevBlogResponse.contents[0]?.title
     case 'imageUrl':
       return <Image imageUrl={content.imageUrl} />
     case 'code': 
-      return <Code code={content.code} />
+      return <Code code={content.code} lang={content.lang[0]} />
     default:
       break;
   }

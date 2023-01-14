@@ -37,6 +37,7 @@ export type ArticleContent = {
   imageUrl: string;
   articleLink: string;
   code: string;
+  lang: Array<any>;
 }
 
 export const getBlogs = async (queries?: MicroCMSQueries) => {
