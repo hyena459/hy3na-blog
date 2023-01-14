@@ -2,6 +2,8 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
+import  { SITE_EYE_CATCH_BACKGROUND } from '../config';
+import base64url from 'base64url';
 
 export interface Props {
 	title: string;
@@ -10,6 +12,12 @@ export interface Props {
 }
 
 const { title, description, image = '/ogp.webp' } = Astro.props;
+
+// ogp画像を動的に作成するためのあれやこれや
+const mark64Params= "?w=1200&mark-align=center%2Cmiddle&mark64=";
+const base64title = base64url(title);
+const titleImage = `https://assets.imgix.net/~text?txtsize=48&w=1000&h=400&txt-align=left,middle&txtfont=Hiragino%20Sans%20W6&txt64=${base64title}`;
+const titleImage64 = base64url(titleImage);
 ---
 <!-- Global Metadata -->
 <meta charset="utf-8" />
@@ -27,11 +35,13 @@ const { title, description, image = '/ogp.webp' } = Astro.props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.site)} />
+<meta property="og:image" content={SITE_EYE_CATCH_BACKGROUND + mark64Params + titleImage64} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.site)} />
+<meta property="twitter:image" content={SITE_EYE_CATCH_BACKGROUND + mark64Params + titleImage64} />
+
+<!-- <meta property="twitter:image" content={new URL(image, Astro.site)} /> -->
