@@ -2,22 +2,18 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
-import  { SITE_EYE_CATCH_BACKGROUND } from '../config';
+import  { SITE_OG_BACKGROUND, SITE_OG_TITLE_IMAGE, SITE_OG_MARK_PARAMETER } from '../config';
 import base64url from 'base64url';
 
 export interface Props {
 	title: string;
 	description: string;
-	image?: string;
 }
 
-const { title, description, image = '/ogp.webp' } = Astro.props;
+const { title, description} = Astro.props;
 
-// ogp画像を動的に作成するためのあれやこれや
-const mark64Params= "?w=1200&mark-align=center%2Cmiddle&mark64=";
-const base64title = base64url(title);
-const titleImage = `https://assets.imgix.net/~text?txtsize=48&w=1000&h=400&txt-align=left,middle&txtfont=Hiragino%20Sans%20W6&txt64=${base64title}`;
-const titleImage64 = base64url(titleImage);
+// ogp画像を動的に作成のためBase64エンコード
+const titleImage64 = base64url(SITE_OG_TITLE_IMAGE + title);
 ---
 <!-- Global Metadata -->
 <meta charset="utf-8" />
@@ -34,14 +30,12 @@ const titleImage64 = base64url(titleImage);
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={SITE_EYE_CATCH_BACKGROUND + mark64Params + titleImage64} />
+<meta property="og:description" content={title} />
+<meta property="og:image" content={SITE_OG_BACKGROUND + SITE_OG_MARK_PARAMETER + titleImage64} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={SITE_EYE_CATCH_BACKGROUND + mark64Params + titleImage64} />
-
-<!-- <meta property="twitter:image" content={new URL(image, Astro.site)} /> -->
+<meta property="twitter:description" content={title} />
+<meta property="twitter:image" content={SITE_OG_BACKGROUND + SITE_OG_MARK_PARAMETER + titleImage64} />
