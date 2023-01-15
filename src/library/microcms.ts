@@ -32,13 +32,19 @@ export type BlogResponse = {
 };
 
 export type ArticleContent = {
-  fieldId: 'richText' | 'articleLink' | 'imageUrl' | 'code';
+  fieldId: 'richText' | 'articleLink' | 'imageContent' | 'code';
   richText: string;
-  imageUrl: string;
+  // imageUrl: string;
   articleLink: string;
   code: string;
   lang: Array<any>;
+  image: {
+    url: string;
+    height: number;
+    width: number;
+  };
 }
+
 
 export const getBlogs = async (queries?: MicroCMSQueries) => {
   return await client.get<BlogResponse>({ endpoint: "blogs", queries });

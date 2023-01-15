@@ -8,6 +8,6 @@ const { imageUrl } = Astro.props;
 
 <div class="image flex justify-center">
   <div class="flex pb-3 basis-2/3 md:basis-full max-w-max">
-    <img src={imageUrl} />
+    <img src={`${imageUrl}?fm=webp`} />
   </div>
 </div>

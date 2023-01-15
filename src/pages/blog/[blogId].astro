@@ -51,10 +51,10 @@ const prevBlogTitle = prevBlogResponse.contents[0]?.title
       return <MarkdownBody markDownBody={content.richText} />
     case 'articleLink':
       return <LinkCard url={content.articleLink} />
-    case 'imageUrl':
-      return <Image imageUrl={content.imageUrl} />
+    case 'imageContent':
+      return  <Image imageUrl={content.image.url} />
     case 'code': 
-      return <Code code={content.code} lang={content.lang[0]} />
+    return <Code code={content.code} lang={content.lang[0]} />
     default:
       break;
   }
