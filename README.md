@@ -19,3 +19,8 @@ https://tailwindcss.com/
 https://vercel.com/
 ## 💨 SimpleAnalytics
 https://simpleanalytics.com/
+## 🤗 giscus
+https://github.com/giscus/giscus
+## 🌻 Social9
+https://social9.com/
+
