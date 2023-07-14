@@ -6,7 +6,7 @@ import SimpleAnalytics from '../components/SimpleAnalytics.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 //microCMS呼び出し
 import { getBlogs } from "../library/microcms";
-const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedAt", "eyecatch", "articleContent", "category", "tags"] })
+const { contents: posts } = await getBlogs({ limit: 100, fields: ["id", "title", "publishedAt", "eyecatch", "articleContent", "category", "tags"] })
 ---
 
 <!DOCTYPE html>

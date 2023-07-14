@@ -8,7 +8,7 @@ import { getBlogs, getBlogDetail} from "../../library/microcms";
 
 // 生成する記事のIDを全て取得
 export async function getStaticPaths() {
-  const response = await getBlogs({ fields: ["id"] });
+  const response = await getBlogs({limit: 100,  fields: ["id"] });
   return response.contents.map((content: any) => ({
     params: {
       blogId: content.id,
